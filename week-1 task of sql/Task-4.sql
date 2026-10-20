@@ -1,0 +1,11 @@
+create database banking;
+use banking;
+create table Bank_Customers(Customer_ID int primary key,Customer_Name varchar(50) not null,city varchar(30));
+create table Bank_Accounts(Account_ID int primary key,Customer_ID int,Account_Type varchar(20),Balance decimal(10,2) check(Balance >= 0),Status varchar(10) default 'Active');
+show tables;
+insert into Bank_Customers(Customer_ID,Customer_Name,city) values(1,'suresh','chennai'),(2,'raj','kolkata'),(3,'ramesh','bangalore'),(4,'gopi','bombay');
+insert into Bank_Accounts(Account_ID,Customer_ID,Account_Type,Balance) values(01,001,'savings',95000),(02,002,'current',80078),(03,003,'current',500709),(04,004,'savings',8000);
+insert into Bank_Accounts(Account_ID,Account_Type,Balance) values(5,'current',6000);
+insert into Bank_Accounts(Account_ID,Account_Type,Balance) values(6,'savings',-6000);
+insert into Bank_Accounts(Customer_ID,Account_Type,Balance) values(007,'current',75000);
+select *from Bank_Customers , Bank_Accounts;
